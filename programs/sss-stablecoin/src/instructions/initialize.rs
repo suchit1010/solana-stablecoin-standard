@@ -171,7 +171,7 @@ pub fn handler(ctx: Context<Initialize>, params: InitializeParams) -> Result<()>
                 &token_program.key(),
                 &mint_account.key(),
                 Some(ctx.accounts.authority.key()),
-                Some(crate::ID), // Hook program ID — in production, use transfer hook program ID
+                Some(std::str::FromStr::from_str("6x8XMLoA9FFmVJnaDou9tyKrh9CFynDY7TtKJ54p4dcN").unwrap()), // Hook program ID
             )?,
             &[
                 mint_account.to_account_info(),
