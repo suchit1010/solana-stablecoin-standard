@@ -59,8 +59,6 @@ pub mod sss_transfer_hook {
     pub fn initialize_extra_account_meta_list(
         ctx: Context<InitializeExtraAccountMetaList>,
     ) -> Result<()> {
-        let mint_key = ctx.accounts.mint.key();
-
         // Define the extra accounts the hook needs:
         // 1. Source blacklist PDA: ["blacklist", mint, source_owner]
         // 2. Destination blacklist PDA: ["blacklist", mint, dest_owner]

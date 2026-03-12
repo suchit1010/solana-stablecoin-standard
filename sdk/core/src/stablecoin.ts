@@ -30,6 +30,7 @@ import {
   MinterQuota,
 } from "./types";
 import { parseSssError } from "./errors";
+import SssStablecoinIdl from "./idl.json";
 
 /**
  * SolanaStablecoin — Main SDK entry point.
@@ -78,7 +79,7 @@ export class SolanaStablecoin {
     programId: PublicKey = SSS_STABLECOIN_PROGRAM_ID
   ): Promise<{ stablecoin: SolanaStablecoin; mint: Keypair; signature: TransactionSignature }> {
     const program = new Program(
-      await Program.fetchIdl(programId, provider)!,
+      SssStablecoinIdl as anchor.Idl,
       provider
     );
 
@@ -127,7 +128,7 @@ export class SolanaStablecoin {
     programId: PublicKey = SSS_STABLECOIN_PROGRAM_ID
   ): Promise<SolanaStablecoin> {
     const program = new Program(
-      await Program.fetchIdl(programId, provider)!,
+      SssStablecoinIdl as anchor.Idl,
       provider
     );
 
