@@ -4,14 +4,14 @@ Modular stablecoin SDK with standardized presets for Solana. Build, deploy, and 
 
 Think OpenZeppelin for stablecoins on Solana — the SDK makes deployment easy, the standards (SSS-1, SSS-2) are what get adopted.
 
-## Program IDs
+## Program IDs (Devnet)
 
 ```
-sss-stablecoin:     SSS1111111111111111111111111111111111111111
-sss-transfer-hook:  SSSHOOK1111111111111111111111111111111111
+sss-stablecoin:     HJ6TUXQ34XhDrmvcozMsBWhSuEVkEcYeqoTWo1Bcmzet
+sss-transfer-hook:  6x8XMLoA9FFmVJnaDou9tyKrh9CFynDY7TtKJ54p4dcN
 ```
 
-> Update these after devnet deployment.
+> Verified working on Devnet. See [DEVNET_PROOF.md](DEVNET_PROOF.md) for transaction hashes.
 
 ## Presets
 
@@ -19,6 +19,7 @@ sss-transfer-hook:  SSSHOOK1111111111111111111111111111111111
 |----------|------|------------|
 | **SSS-1** | Minimal Stablecoin | Mint + freeze + metadata. For DAO treasuries, internal tokens, ecosystem settlement. |
 | **SSS-2** | Compliant Stablecoin | SSS-1 + permanent delegate + transfer hook + blacklist enforcement. For regulated tokens (USDC/USDT-class). |
+| **SSS-3** | Confidential Stablecoin | ZK-Proofs + ElGamal Encryption. (Design Specs & Token-2022 Integration). |
 
 ## Quick Start
 
@@ -42,8 +43,13 @@ npm install
 # Build programs
 anchor build
 
-# Run tests
+# Run tests (49 PASSING)
 anchor test
+```
+
+### Run Full Demo
+```bash
+./demo-full-lifecycle.sh
 ```
 
 ### CLI
@@ -159,6 +165,8 @@ solana-stablecoin-standard/
 - [SSS-2.md](docs/SSS-2.md) — Compliant stablecoin spec
 - [COMPLIANCE.md](docs/COMPLIANCE.md) — Regulatory considerations, audit trail
 - [API.md](docs/API.md) — Backend API reference
+- [SSS-3.md](docs/SSS-3.md) — Confidential Transfer Spec (ZK)
+- [Squads Integration](scripts/multisig-authority-transfer.ts) — Transition to Multisig Logic
 
 ## Testing
 
