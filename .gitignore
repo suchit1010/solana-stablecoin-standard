@@ -23,11 +23,21 @@ Thumbs.db
 
 # Build
 *.so
+*.rlib
+*.rmeta
+*.d
 
+# Rust toolchain (Solana platform tools)
+rust/
 llvm/
-
+platform-tools/
 platform-tools-linux-x86_64.tar.bz2
+platform-tools-osx-x86_64.tar.bz2
+platform-tools-windows-x86_64.tar.bz2
 
+# Trident fuzzing
+trident-tests/hfuzz_workspace/
+
+# Logs
 mocha_error.log
-
 mocha_error2.txt
